@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: sans-serif;
+    }
+
+    .container {
+        position: relative;
+        width: 480px;
+        height: 400px;
+        text-align: center;
+        left: 35%;
+        background: linear-gradient(to bottom, #ccffff 0%, #336699 110%);
+    }
+
+    .boxes {
+        margin-left: 20px;
+    }
+
+    #d {
+        font-size: 25px;
+        color: #ccffff;
+    }
+
+    h1 {
+        display: inline-block;
+        border-bottom: 8px double black;
+    }
+
+    input {
+        display: block;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px thick black;
+        margin: 15px 10px;
+        outline: none;
+    }
+
+    input:hover {
+        box-shadow: 4px 4px 8px 0px dimgrey;
+
+    }
+
+    .rows {
+        display: flex;
+
+    }
+
+
+    #btn {
+        background-color: aquamarine;
+        margin: 40px 40px;
+        font-size: 20px;
+        width: 120px;
+        height: 40px;
+    }
+
+    #btn:hover {
+        box-shadow: 4px 4px 8px 0px navy;
+        font-weight: 700;
+    }
+
+
+    h2::after {
+        position: absolute;
+        top: 135px;
+        left: 200px;
+        content: "";
+        height: 4px;
+        width: 100px;
+        background-color: red;
+        animation: animate 2s infinite;
+    }
+
+
+    @keyframes animate {
+
+        0%,
+        100% {
+            width: 120px
+        }
+
+        50% {
+            width: 50px
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <div class="boxes">
+            <h2>Enter Your Birthday</h2>
+            <div class="rows">
+                <div class="row">
+                    <input id="a" type="number" placeholder="Enter Date">
+                    <input id="b" type="number" placeholder="Enter Month">
+                    <input id="c" type="number" placeholder="Enter Year">
+                </div>
+                <div class="row">
+                    <input type="button" value="Submit" id="btn" onclick="fun()">
+                </div>
+            </div>
+            <p id="d"></p>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    function fun() {
+        var g = parseInt(document.getElementById('a').value);
+        var h = parseInt(document.getElementById('b').value);
+        var i = parseInt(document.getElementById('c').value);
+
+        var j = new Date();
+        var yy = j.getFullYear()
+        var mm = j.getMonth() + 1
+        var dd = j.getDate()
+
+        if (i >= yy) {
+            if (h > mm || g > dd || i > yy) {
+                document.getElementById('d').innerHTML = "Please Enter The Correct Date Of Birth"
+            }
+            else {
+                document.getElementById('d').innerHTML = "Your current Age is " + Math.abs(yy - i) + " years " + Math.abs(mm - h) + " Months   " + Math.abs(dd - g) + " Days"
+            }
+        }
+        else {
+            document.getElementById('d').innerHTML = "Your Current Age Is " + Math.abs(yy - i) + " years " + Math.abs(mm - h) + " Months   " + Math.abs(dd - g) + " Days"
+        }
+        if (h > 12 || g > 31) {
+            document.getElementById('d').innerHTML = "Month cannot exceeds 12 " + " Date cannot exceeds 31"
+        }
+        if (g <= 0 || h <= 0 || i <= 0) {
+            document.getElementById('d').innerHTML = "Enter  Valid Date Of Birth"
+        }
+    }
+</script>
+
+</html>
