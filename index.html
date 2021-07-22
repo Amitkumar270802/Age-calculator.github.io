@@ -9,10 +9,8 @@
 </head>
 <style>
     body {
-        height: 100vh;
-        width: 100vw;
-        /* margin: 0;
-            padding: 0; */
+        height: 90vh;
+        width: 90vw;
         font-family: sans-serif;
     }
 
@@ -23,9 +21,6 @@
     }
 
     .container {
-        /* display: flex;
-        align-items: center;
-        justify-self: center; */
         border: 2px solid red;
         width: 480px;
         height: 400px;
@@ -52,14 +47,12 @@
         font-size: 16px;
         text-align: center;
         border-radius: 5px;
-        border: 2px thick black;
         margin: 15px 10px;
         outline: none;
     }
 
     input:hover {
         box-shadow: 4px 4px 8px 0px dimgrey;
-
     }
 
     .rows {
@@ -70,10 +63,12 @@
 
     #btn {
         background: linear-gradient(to bottom left, #00ccff 0%, #ffcc66 100%);
-        margin: 40px 40px;
-        font-size: 20px;
-        width: 120px;
-        height: 40px;
+        margin: 16px 51px;
+        font-size: 21px;
+        width: 106px;
+        font-weight: 500;
+        font-family: sans-serif;
+        height: 38px;
     }
 
     #btn:hover {
@@ -83,7 +78,7 @@
 
 
     h2::after {
-        position: fixed;
+        position: absolute;
         top: 135px;
         margin: 7px -164px;
         content: "";
@@ -117,16 +112,26 @@
 
         .container {
             border: 2px solid red;
-            width: 450px;
+            width: 425px;
             height: 400px;
-            text-align: center;
             background: linear-gradient(to bottom, #ccffff 0%, #336699 110%);
         }
-
         #btn {
             background: linear-gradient(to right, #33ccff 0%, #ffcc99 100%);
-            /* color: white; */
+            margin: 21px 55px;
+            font-size: 19px;
+            width: 96px;
+            height: 36px;
         }
+        input {
+        display: block;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 5px;
+        margin: 15px 10px;
+        outline: none;
+        width: 154px;
+    }
     }
 </style>
 
@@ -144,6 +149,7 @@
                     </div>
                     <div class="row">
                         <input type="button" value="Submit" id="btn" onclick="fun()">
+                        <input type="button" value="Reset" id="btn" onclick="fun1()">
                     </div>
                 </div>
                 <p id="d"></p>
@@ -179,6 +185,12 @@
         if (g <= 0 || h <= 0 || i <= 0) {
             document.getElementById('d').innerHTML = "Enter  Valid Date Of Birth"
         }
+    }
+    function fun1() {
+        document.getElementById('d').innerHTML = "";
+        document.getElementById('a').value = "";
+        document.getElementById('b').value = "";
+        document.getElementById('c').value = "";
     }
 </script>
 
